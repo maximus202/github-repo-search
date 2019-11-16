@@ -1,22 +1,21 @@
 $(document).ready(function () {
 
-    function generateSearch(searchValue) {
+    const token = "";
+
+    function getRepos(searchValue) {
+        const url = `https://api.github.com/users/:${searchValue}/repos`;
+        const options = {
+            headers: new Headers({
+                "Authorization": `Bearer ${token}`
+            })
+        };
+        fetch(url, options)
+            .then(response => response.json())
+            .then(responseJson => console.log(responseJson));
+    };
+
+    /*function generateSearch(searchValue) {
         console.log(`generateSearch ran with ${searchValue} paramater.`);
-        var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "https://api.github.com/users/maximus202/repos",
-            "method": "GET",
-            "headers": {
-                "": "",
-                "Authorization": "Bearer 27c6d41c63eb2519be709189d2767a8ba7b899b8",
-                "cache-control": "no-cache",
-                "Postman-Token": "56b48eab-9d20-4b0d-9d16-688083cc276f"
-            }
-        }
-        $.ajax(settings).done(function (response) {
-            console.log(response);
-        });
         fetch(`https://api.github.com/users/:${searchValue}/repos`)
             .then(response => {
                 if (response.ok) {
@@ -28,7 +27,7 @@ $(document).ready(function () {
             .catch(err => {
                 $('#js-error-message').text(`Something went wrong: ${err.message}`);
             });
-    };
+    };*/
 
     function searchForRepos() {
         //User searches for a list of repos using a GitHub handle
@@ -38,7 +37,7 @@ $(document).ready(function () {
             console.log('submit button heard');
             const searchValue = $('#handle').val();
             console.log(searchValue);
-            generateSearch(searchValue);
+            getRepos(searchValue);
         });
     };
 
