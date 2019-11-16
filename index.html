@@ -6,10 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GitHub Repo Search</title>
+    <link rel="stylesheet" href="main.css">
 </head>
+<header>
+    <h1>GitHub Repo Search</h1>
+</header>
 
 <body>
+    <main>
+        <form>
+            <fieldset>
+                <legend>GitHub Handle:</legend>
+                <input type="text" name="handle" id="handle" required></input>
+                <input type="submit" name="Search">
+            </fieldset>
+        </form>
+        <div class="results">
 
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>
